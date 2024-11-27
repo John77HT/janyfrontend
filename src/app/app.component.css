@@ -1,0 +1,55 @@
+/* Estilos para la barra de navegación */
+nav {
+  background-color: #0909e7; /* Color de fondo oscuro */
+  padding: 10px 0; /* Espaciado vertical */
+  width: 100%; /* Asegurarse de que ocupe todo el ancho */
+  position: fixed; /* Mantener la barra en la parte superior */
+  top: 0; /* Alinear al borde superior */
+  left: 0; /* Alinear al borde izquierdo */
+  z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+nav ul {
+  list-style-type: none; /* Eliminar los puntos de la lista */
+  padding: 0; /* Eliminar padding */
+  margin: 0; /* Eliminar margin */
+  display: flex; /* Flexbox para disposición horizontal */
+  justify-content: space-around; /* Espacio igual entre elementos */
+}
+
+nav li {
+  flex: 1; /* Cada elemento de la lista ocupa el mismo espacio */
+}
+
+nav a {
+  color: white; /* Color de texto blanco */
+  text-decoration: none; /* Sin subrayado */
+  font-size: 16px; /* Tamaño de fuente */
+  display: flex; /* Flexbox para centrar el texto */
+  align-items: center; /* Alinear verticalmente */
+  justify-content: center; /* Alinear horizontalmente */
+  padding: 10px; /* Espaciado interno */
+  transition: background-color 0.3s; /* Transición para el efecto hover */
+}
+
+nav a:hover {
+  background-color: #649cd5; /* Color de fondo al pasar el cursor */
+}
+
+/* Espaciado para el contenido principal para evitar que quede oculto detrás de la barra de navegación */
+router-outlet {
+  margin-top: 60px; /* Ajustar según la altura de la barra de navegación */
+}
+
+/* Responsivo: Asegura que la barra se vea bien en pantallas pequeñas */
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column; /* Cambiar a disposición vertical en pantallas pequeñas */
+      align-items: center; /* Centrar los elementos en la columna */
+  }
+
+  nav a {
+      font-size: 14px; /* Tamaño de fuente más pequeño */
+      padding: 8px; /* Espaciado interno ajustado */
+  }
+}

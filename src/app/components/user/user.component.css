@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 800px; /* Ancho máximo del formulario */
+  width: 100%; /* Ancho completo del contenedor */
+  margin: 50px auto; /* Centra el contenedor horizontalmente */
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #12b7dd;
+}
+
+.user-table th {
+  background-color: #5fa6f3;
+  color: #333;
+  font-weight: bold;
+}
+
+.user-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.btn-edit {
+  background-color: #007bff;
+}
+
+.btn-edit:hover {
+  background-color: #0056b3;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+#formularioEdicion {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+#formularioEdicion label {
+  font-weight: bold;
+  color: #555;
+}
+
+#formularioEdicion input[type="text"],
+#formularioEdicion input[type="email"],
+#formularioEdicion input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#formularioEdicion button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+#formularioEdicion button[type="submit"] {
+  background-color: #28a745;
+}
+
+#formularioEdicion button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+#formularioEdicion button[type="button"] {
+  background-color: #6c757d;
+}
+
+#formularioEdicion button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .user-table th, .user-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn-edit, .btn-delete {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}

@@ -1,0 +1,144 @@
+/* Estilo General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Color de fondo suave */
+}
+
+.container {
+    max-width: 1200px; /* Ancho máximo */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px; /* Espaciado interno */
+    background: #fff; /* Fondo blanco para el contenedor */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Títulos */
+.title {
+    text-align: center;
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espaciado inferior */
+    font-size: 24px; /* Tamaño de fuente */
+}
+
+/* Tabla */
+.table-wrapper {
+    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+}
+
+.user-table {
+    width: 100%; /* Ancho completo */
+    border-collapse: collapse; /* Sin espacios entre bordes */
+    margin-bottom: 20px; /* Espacio debajo de la tabla */
+}
+
+.user-table th, .user-table td {
+    padding: 12px; /* Espaciado interno */
+    text-align: left; /* Alinear texto a la izquierda */
+    border-bottom: 1px solid #ddd; /* Línea inferior en las celdas */
+}
+
+.user-table th {
+    background-color: #007bff; /* Color de fondo de la cabecera */
+    color: white; /* Color del texto de la cabecera */
+}
+
+/* Botones */
+button {
+    border: none; /* Sin bordes */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.btn-edit {
+    background-color: #28a745; /* Verde */
+    color: white; /* Color del texto */
+}
+
+.btn-edit:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Rojo */
+    color: white; /* Color del texto */
+}
+
+.btn-delete:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el mouse */
+}
+
+.btn-create {
+    background-color: #007bff; /* Azul */
+    color: white; /* Color del texto */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+.btn-create:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+.btn-cancel {
+    background-color: #6c757d; /* Gris */
+    color: white; /* Color del texto */
+    margin-left: 10px; /* Espaciado a la izquierda */
+}
+
+.btn-cancel:hover {
+    background-color: #5a6268; /* Gris más oscuro al pasar el mouse */
+}
+
+/* Formulario */
+form {
+    background: #f8f9fa; /* Color de fondo del formulario */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+label {
+    display: block; /* Forzar etiquetas a ocupar todo el ancho */
+    margin-bottom: 5px; /* Espaciado inferior de las etiquetas */
+    font-weight: bold; /* Texto en negrita */
+}
+
+input, textarea {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff; /* Cambia el color del borde al hacer foco */
+    outline: none; /* Sin contorno */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Ancho completo en dispositivos móviles */
+        padding: 10px; /* Menos espaciado interno */
+    }
+
+    .user-table th, .user-table td {
+        padding: 8px; /* Menos espaciado en las celdas */
+    }
+
+    button {
+        padding: 8px; /* Menos espaciado en botones */
+    }
+
+    label {
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
+
+    input, textarea {
+        padding: 8px; /* Menos espaciado en campos */
+    }
+}

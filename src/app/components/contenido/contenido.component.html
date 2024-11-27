@@ -1,0 +1,52 @@
+<div class="container">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <h2 class="title">Publicaciones</h2>
+    <div class="table-wrapper">
+        
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Texto</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of arrayPublicaciones">
+            <th>{{ item.id_publicacion }}</th>
+            <td>{{ item.texto }}</td>
+            <td>
+              <button class="btn-edit" (click)="editarPublicacion(item)">
+                <i class="fas fa-edit"></i> Editar
+              </button>
+              <button class="btn-delete" (click)="deletePublicacion(item.id_publicacion)">
+                <i class="fas fa-trash-alt"></i> Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <br><br>
+  
+      <button class="btn-create" (click)="formVisible = true">
+        <i class="fas fa-plus"></i> Crear Publicación
+      </button>
+
+      <form id="formularioEdicion" *ngIf="formVisible" [formGroup]="nuevoPublicacionForm" (ngSubmit)="publicacionEnEdicion ? actualizarPublicacion() : crearPublicacion()">
+        <label for="id_publicacion">ID:</label>
+        <input id="id_publicacion" formControlName="id_publicacion" required readonly>
+
+        <label for="texto">Texto:</label>
+        <textarea id="texto" formControlName="texto" required></textarea>
+
+        <button type="submit">
+          <i class="fas fa-check"></i> {{ publicacionEnEdicion ? 'Actualizar' : 'Crear' }} Publicación
+        </button>
+        <button type="button" (click)="cancelarEdicion()">
+          <i class="fas fa-times"></i> Cancelar
+        </button>
+      </form>
+    </div>
+</div>
