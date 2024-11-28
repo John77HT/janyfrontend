@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'https://backendmarcelo.onrender.com/api/usuarios'; // Cambia la URL según tu configuración
+  private apiUrl = 'https://backendjany.onrender.com/api/usuarios'; // Cambia la URL según tu configuración
 
   constructor(private http: HttpClient) {}
 

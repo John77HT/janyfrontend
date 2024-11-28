@@ -11,53 +11,51 @@ import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
   styleUrl: './contenido.component.css'
 })
 export class ContenidoComponent implements OnInit {
-  arrayPublicaciones: any[] = []; // Cambia 'any' a 'Publicacion' si tienes un modelo
-  publicacionEnEdicion: any = null; // Publicación en edición
-  nuevoPublicacionForm: FormGroup; 
-  formVisible: boolean = false; // Controla la visibilidad del formulario
-
+  arrayMascotas: any[] = [];
+  mascotaEnEdicion: any = null;
+  nuevoMascotaForm: FormGroup; 
+  formVisible: boolean = false;
   constructor(private publicacionService: PublicacionService, private fb: FormBuilder) {
-    this.nuevoPublicacionForm = this.fb.group({
-      id_publicacion: [{ value: '', disabled: true }], // Deshabilitado por defecto
-      texto: ['']
+    this.nuevoMascotaForm = this.fb.group({
+      id_mascota: [{ value: '', disabled: true }],
+      nombre: [''],
+      edad: [''],
+      raza: [''],
+      especie: ['']
     });
   }
 
   ngOnInit(): void {
-    this.fetch(); // Cargar las publicaciones al iniciar
+    this.fetch(); 
   }
 
   fetch(): void {
-    this.publicacionService.fetchPublicacion().subscribe(result => {
-      this.arrayPublicaciones = result; // Asegúrate de que result sea del tipo Publicacion[]
+    this.publicacionService.fetchMascotas().subscribe(result => {
+      this.arrayMascotas = result;
     });
   }
 
-  crearPublicacion(): void {
-    const nuevaPublicacion = this.nuevoPublicacionForm.value;
-    this.publicacionService.postPublicacion(nuevaPublicacion).subscribe(
+  crearMascota(): void {
+    const nuevaMascota = this.nuevoMascotaForm.value;
+    this.publicacionService.postMascota(nuevaMascota).subscribe(
       (result) => {
-        console.log('Publicación creada:', result);
-        this.arrayPublicaciones.push(result); // Agrega la nueva publicación a la lista
-        this.nuevoPublicacionForm.reset(); // Limpia el formulario
-        alert('Publicación creada con éxito.');
-
-        // Desplazarse hacia la parte superior
+        this.arrayMascotas.push(result);
+        this.nuevoMascotaForm.reset();
+        alert('Mascota creada con éxito.');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       (error) => {
-        console.error('Error al crear publicación:', error);
-        alert('Error al crear la publicación.');
+        console.error('Error al crear mascota:', error);
+        alert('Error al crear la mascota.');
       }
     );
   }
 
-  editarPublicacion(publicacion: any): void {
-    this.publicacionEnEdicion = publicacion;
-    this.nuevoPublicacionForm.patchValue(publicacion);
+  editarMascota(mascota: any): void {
+    this.mascotaEnEdicion = mascota;
+    this.nuevoMascotaForm.patchValue(mascota);
     this.formVisible = true;
 
-    // Desplazarse hacia el formulario
     setTimeout(() => {
       const formElement = document.getElementById('formularioEdicion');
       if (formElement) {
@@ -66,48 +64,45 @@ export class ContenidoComponent implements OnInit {
     }, 0);
   }
 
-  actualizarPublicacion(): void {
-    const id = this.nuevoPublicacionForm.get('id_publicacion')?.value;
-    const publicacionActualizada = this.nuevoPublicacionForm.value;
+  actualizarMascota(): void {
+    const id = this.nuevoMascotaForm.get('id_mascota')?.value;
+    const mascotaActualizada = this.nuevoMascotaForm.value;
 
-    this.publicacionService.updatePublicacion(id, publicacionActualizada).subscribe(
+    this.publicacionService.updateMascota(id, mascotaActualizada).subscribe(
       (result) => {
-        console.log('Publicación actualizada:', result);
-        const index = this.arrayPublicaciones.findIndex(pub => pub.id_publicacion === id);
+        const index = this.arrayMascotas.findIndex(m => m.id_mascota === id);
         if (index !== -1) {
-          this.arrayPublicaciones[index] = result; // Actualiza la publicación en la lista
+          this.arrayMascotas[index] = result;
         }
-        this.cancelarEdicion(); // Cierra el formulario de edición
-        alert('Publicación actualizada con éxito.');
-
-        // Desplazarse hacia la parte superior
+        this.cancelarEdicion();
+        alert('Mascota actualizada con éxito.');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
       (error) => {
-        console.error('Error actualizando publicación:', error);
-        alert('Error al actualizar la publicación.');
+        console.error('Error actualizando mascota:', error);
+        alert('Error al actualizar la mascota.');
       }
     );
   }
 
-  deletePublicacion(id_publicacion: string): void {
-    if (confirm('¿Estás seguro de que deseas eliminar esta publicación?')) {
-      this.publicacionService.deletePublicacion(id_publicacion).subscribe(
+  deleteMascota(id_mascota: string): void {
+    if (confirm('¿Estás seguro de que deseas eliminar esta mascota?')) {
+      this.publicacionService.deleteMascota(id_mascota).subscribe(
         () => {
-          this.arrayPublicaciones = this.arrayPublicaciones.filter(pub => pub.id_publicacion !== id_publicacion);
-          alert('Publicación eliminada con éxito.');
+          this.arrayMascotas = this.arrayMascotas.filter(m => m.id_mascota !== id_mascota);
+          alert('Mascota eliminada con éxito.');
         },
         error => {
-          console.error('Error al eliminar la publicación:', error);
-          alert('Error al eliminar la publicación. Por favor, intenta de nuevo.');
+          console.error('Error al eliminar la mascota:', error);
+          alert('Error al eliminar la mascota. Por favor, intenta de nuevo.');
         }
       );
     }
   }
 
   cancelarEdicion(): void {
-    this.publicacionEnEdicion = null;
-    this.nuevoPublicacionForm.reset();
-    this.formVisible = false; // Oculta el formulario al cancelar
+    this.mascotaEnEdicion = null;
+    this.nuevoMascotaForm.reset();
+    this.formVisible = false;
   }
 }

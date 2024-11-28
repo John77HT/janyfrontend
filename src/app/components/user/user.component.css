@@ -1,149 +1,149 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-}
-
+/* Contenedor principal */
 .container {
-  max-width: 800px; /* Ancho máximo del formulario */
-  width: 100%; /* Ancho completo del contenedor */
-  margin: 50px auto; /* Centra el contenedor horizontalmente */
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Título principal */
 .title {
   text-align: center;
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
+  color: #1a1a1a;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
+/* Contenedor de la tabla */
 .table-wrapper {
   overflow-x: auto;
+  margin-bottom: 30px;
 }
 
+/* Tabla de usuarios */
 .user-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  font-size: 0.95rem;
+  text-align: left;
 }
 
-.user-table th,
+.user-table th, 
 .user-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #12b7dd;
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
 }
 
 .user-table th {
-  background-color: #5fa6f3;
-  color: #333;
-  font-weight: bold;
+  background-color: #1a1a1a;
+  color: #f8c1d9;
+  text-transform: uppercase;
+}
+
+.user-table tbody tr:nth-child(even) {
+  background-color: rgba(240, 240, 240, 0.5);
 }
 
 .user-table tbody tr:hover {
-  background-color: #f1f1f1;
+  background-color: rgba(220, 220, 220, 0.5);
 }
 
+/* Botones de acción */
 .btn-edit,
 .btn-delete {
-  padding: 8px 12px;
-  font-size: 14px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
   cursor: pointer;
-  color: #fff;
-  margin-right: 5px;
+  transition: background-color 0.3s;
 }
 
 .btn-edit {
-  background-color: #007bff;
+  background-color: #87ceeb; /* Azul claro */
+  color: #ffffff;
 }
 
 .btn-edit:hover {
-  background-color: #0056b3;
+  background-color: #4682b4; /* Azul más oscuro */
 }
 
 .btn-delete {
-  background-color: #dc3545;
+  background-color: #f08080; /* Rojo claro */
+  color: #ffffff;
 }
 
 .btn-delete:hover {
-  background-color: #c82333;
+  background-color: #b22222; /* Rojo oscuro */
 }
 
+.btn-edit i,
+.btn-delete i {
+  margin-right: 5px;
+}
+
+/* Formulario de edición */
 #formularioEdicion {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
   margin-top: 20px;
   padding: 20px;
-  border-top: 1px solid #ddd;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #formularioEdicion label {
   font-weight: bold;
-  color: #555;
+  margin-bottom: 5px;
+  display: block;
+  color: #1a1a1a;
 }
 
-#formularioEdicion input[type="text"],
-#formularioEdicion input[type="email"],
-#formularioEdicion input[type="number"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+#formularioEdicion input {
   width: 100%;
-  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 #formularioEdicion button {
-  padding: 10px;
-  font-size: 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-right: 10px;
   cursor: pointer;
-  color: #fff;
+  transition: background-color 0.3s;
 }
 
 #formularioEdicion button[type="submit"] {
-  background-color: #28a745;
+  background-color: #32cd32; /* Verde claro */
+  color: #ffffff;
 }
 
 #formularioEdicion button[type="submit"]:hover {
-  background-color: #218838;
+  background-color: #228b22; /* Verde oscuro */
 }
 
 #formularioEdicion button[type="button"] {
-  background-color: #6c757d;
+  background-color: #f08080; /* Rojo claro */
+  color: #ffffff;
 }
 
 #formularioEdicion button[type="button"]:hover {
-  background-color: #5a6268;
+  background-color: #b22222; /* Rojo oscuro */
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  .container {
-    width: 90%;
-    padding: 10px;
-  }
-
-  .title {
-    font-size: 20px;
-  }
-
-  .user-table th, .user-table td {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  .btn-edit, .btn-delete {
-    font-size: 12px;
-    padding: 6px 8px;
-  }
+#formularioEdicion i {
+  margin-right: 5px;
 }

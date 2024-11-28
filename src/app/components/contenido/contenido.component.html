@@ -1,52 +1,62 @@
 <div class="container">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <h2 class="title">Mascotas</h2>
+  <div class="table-wrapper">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Raza</th>
+          <th>Especie</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of arrayMascotas">
+          <th>{{ item.id_mascota }}</th>
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.edad }}</td>
+          <td>{{ item.raza }}</td>
+          <td>{{ item.especie }}</td>
+          <td>
+            <button class="btn-edit" (click)="editarMascota(item)">
+              <i class="fas fa-edit"></i> Editar
+            </button>
+            <button class="btn-delete" (click)="deleteMascota(item.id_mascota)">
+              <i class="fas fa-trash-alt"></i> Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-    <h2 class="title">Publicaciones</h2>
-    <div class="table-wrapper">
-        
-      <table class="user-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Texto</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of arrayPublicaciones">
-            <th>{{ item.id_publicacion }}</th>
-            <td>{{ item.texto }}</td>
-            <td>
-              <button class="btn-edit" (click)="editarPublicacion(item)">
-                <i class="fas fa-edit"></i> Editar
-              </button>
-              <button class="btn-delete" (click)="deletePublicacion(item.id_publicacion)">
-                <i class="fas fa-trash-alt"></i> Eliminar
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <br><br>
-  
-      <button class="btn-create" (click)="formVisible = true">
-        <i class="fas fa-plus"></i> Crear Publicación
+    <button class="btn-create" (click)="formVisible = true">
+      <i class="fas fa-plus"></i> Crear Mascota
+    </button>
+
+    <form id="formularioEdicion" *ngIf="formVisible" [formGroup]="nuevoMascotaForm" (ngSubmit)="mascotaEnEdicion ? actualizarMascota() : crearMascota()">
+      <label for="id_mascota">ID:</label>
+      <input id="id_mascota" formControlName="id_mascota" readonly>
+
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" formControlName="nombre" required>
+
+      <label for="edad">Edad:</label>
+      <input id="edad" formControlName="edad" required>
+
+      <label for="raza">Raza:</label>
+      <input id="raza" formControlName="raza" required>
+
+      <label for="especie">Especie:</label>
+      <input id="especie" formControlName="especie" required>
+
+      <button type="submit">
+        <i class="fas fa-check"></i> {{ mascotaEnEdicion ? 'Actualizar' : 'Crear' }} Mascota
       </button>
-
-      <form id="formularioEdicion" *ngIf="formVisible" [formGroup]="nuevoPublicacionForm" (ngSubmit)="publicacionEnEdicion ? actualizarPublicacion() : crearPublicacion()">
-        <label for="id_publicacion">ID:</label>
-        <input id="id_publicacion" formControlName="id_publicacion" required readonly>
-
-        <label for="texto">Texto:</label>
-        <textarea id="texto" formControlName="texto" required></textarea>
-
-        <button type="submit">
-          <i class="fas fa-check"></i> {{ publicacionEnEdicion ? 'Actualizar' : 'Crear' }} Publicación
-        </button>
-        <button type="button" (click)="cancelarEdicion()">
-          <i class="fas fa-times"></i> Cancelar
-        </button>
-      </form>
-    </div>
+      <button type="button" (click)="cancelarEdicion()">
+        <i class="fas fa-times"></i> Cancelar
+      </button>
+    </form>
+  </div>
 </div>

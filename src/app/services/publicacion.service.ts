@@ -7,37 +7,32 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicacionService {
-  private apiUrl = 'https://backendmarcelo.onrender.com/api/publicaciones'; // Cambia la URL según tu configuración
+  private apiUrl = 'https://backendjany.onrender.com/api/mascotas'; // Cambia la URL según tu configuración
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  // Método para obtener todas las publicaciones
-  fetchPublicacion(): Observable<any[]> {
+  // Método para obtener todas las mascotas
+  fetchMascotas(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  // Método para crear una nueva publicación
-  postPublicacion(publicacion: any): Observable<any> {
-    return this.http.post(this.apiUrl, publicacion);
+  // Método para crear una nueva mascota
+  postMascota(mascota: any): Observable<any> {
+    return this.http.post(this.apiUrl, mascota);
   }
 
-  // Método para actualizar una publicación
-  updatePublicacion(id: string, publicacion: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, publicacion);
+  // Método para actualizar una mascota
+  updateMascota(id: string, mascota: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, mascota);
   }
 
-  // Método para eliminar una publicación
-  deletePublicacion(id: string): Observable<any> {
+  // Método para eliminar una mascota
+  deleteMascota(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
-  // Método para obtener una publicación por ID
-  getPublicacionById(id: string): Observable<any> {
+  // Método para obtener una mascota por ID
+  getMascotaById(id: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
-  }
-
-  // Método para obtener la última publicación ID
-  getLastId(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/last-id`); // Asegúrate de que tu API tenga este endpoint
   }
 }
