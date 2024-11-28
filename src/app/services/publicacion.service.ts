@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicacionService {
-  private apiUrl = 'http://localhost:3000/api/publicacion'; // Cambia la URL según tu configuración
+  private apiUrl = 'https://backendmarcelo.onrender.com/api/publicaciones'; // Cambia la URL según tu configuración
 
   constructor(private http: HttpClient) {}
 

@@ -5,9 +5,10 @@
             <tbody>
                 <tr>
                     <td><label for="id"><i class="fas fa-id-card"></i> ID:</label></td>
-                    <td><input type="number" id="id" formControlName="id_usuario" required readonly class="id-input"></td>
+                    <td><input type="number" id="id" formControlName="id_usuario" required readonly class="id-input">
+                    </td>
                 </tr>
-                
+
                 <tr>
                     <td><label for="nombre"><i class="fas fa-user"></i> Nombre:</label></td>
                     <td><input type="text" id="nombre" formControlName="nombre" required></td>
@@ -34,16 +35,10 @@
                     <td><label for="password"><i class="fas fa-lock"></i> Contraseña:</label></td>
                     <td>
                         <div class="password-container" style="display: flex; align-items: center;">
-                            <input 
-                              [type]="showPassword ? 'text' : 'password'" 
-                              id="password" 
-                              formControlName="password" 
-                              required
-                              style="margin-right: 8px;">
-                            <i 
-                              [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'" 
-                              (click)="togglePasswordVisibility()"
-                              style="cursor: pointer;">
+                            <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
+                                required style="margin-right: 8px;">
+                            <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"
+                                (click)="togglePasswordVisibility()" style="cursor: pointer;">
                             </i>
                         </div>
                     </td>

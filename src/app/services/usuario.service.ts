@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:3000/api/usuarios'; // Cambia la URL según tu configuración
+  private apiUrl = 'https://backendmarcelo.onrender.com/api/usuarios'; // Cambia la URL según tu configuración
 
   constructor(private http: HttpClient) {}
 
