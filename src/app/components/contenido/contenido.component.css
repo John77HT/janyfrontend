@@ -41,7 +41,7 @@ body {
 }
 
 .user-table th {
-    background-color: #007bff; /* Color de fondo de la cabecera */
+    background-color: #e20699; /* Color de fondo de la cabecera */
     color: white; /* Color del texto de la cabecera */
 }
 
@@ -55,7 +55,7 @@ button {
 }
 
 .btn-edit {
-    background-color: #28a745; /* Verde */
+    background-color: #c018ba; /* Verde */
     color: white; /* Color del texto */
 }
 
@@ -73,7 +73,7 @@ button {
 }
 
 .btn-create {
-    background-color: #007bff; /* Azul */
+    background-color: #9713ea; /* Azul */
     color: white; /* Color del texto */
     margin-bottom: 20px; /* Espaciado inferior */
 }
